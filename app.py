@@ -1,12 +1,13 @@
 from typing import Annotated, Any, Dict, List, Sequence, Set, Union
 
-import schemas
-from database import engine, session
 from fastapi import FastAPI, Path, Response, status
-from fill_db import populate_db
-from models import Base, Ingredient, Recipe
 from sqlalchemy import desc
 from sqlalchemy.future import select
+
+import schemas
+from database import engine, session
+from fill_db import populate_db
+from models import Base, Ingredient, Recipe
 from utils import (add_ingredients, add_recipe_ingredients,
                    get_ingredients_list, increase_view_count)
 
