@@ -11,35 +11,35 @@ async def populate_db():
             {
                 "title": "Spaghetti Carbonara",
                 "description": "A classic Italian pasta dish made with "
-                               "eggs, cheese, pancetta, and pepper.",
+                "eggs, cheese, pancetta, and pepper.",
                 "cooking_time": 20,
                 "views": 0,
             },
             {
                 "title": "Chicken Curry",
                 "description": "A flavorful chicken curry made with a blend"
-                               " of spices, tomatoes, and coconut milk.",
+                " of spices, tomatoes, and coconut milk.",
                 "cooking_time": 40,
                 "views": 0,
             },
             {
                 "title": "Beef Stroganoff",
                 "description": "A Russian dish of sautéed pieces "
-                               "of beef served in a sauce with sour cream.",
+                "of beef served in a sauce with sour cream.",
                 "cooking_time": 30,
                 "views": 0,
             },
             {
                 "title": "Vegetable Stir Fry",
                 "description": "A quick and healthy stir fry with "
-                               "a mix of fresh vegetables and soy sauce.",
+                "a mix of fresh vegetables and soy sauce.",
                 "cooking_time": 15,
                 "views": 0,
             },
             {
                 "title": "Pancakes",
                 "description": "Fluffy pancakes made with flour, milk,"
-                               " eggs, and butter, served with syrup.",
+                " eggs, and butter, served with syrup.",
                 "cooking_time": 10,
                 "views": 0,
             },
