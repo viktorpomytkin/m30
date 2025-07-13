@@ -8,8 +8,12 @@ import schemas
 from database import engine, session
 from fill_db import populate_db
 from models import Base, Ingredient, Recipe
-from utils import (add_ingredients, add_recipe_ingredients,
-                   get_ingredients_list, increase_view_count)
+from utils import (
+    add_ingredients,
+    add_recipe_ingredients,
+    get_ingredients_list,
+    increase_view_count,
+)
 
 app = FastAPI()
 
@@ -44,7 +48,8 @@ async def shutdown():
 @app.get("/recipes/", response_model=List[schemas.RecipeOutShort])
 async def get_all_recipes() -> Sequence[Recipe]:
     """
-    Возвращает список всех рецептов, отсортированных по популярности и времени приготовления.
+    Возвращает список всех рецептов,
+    отсортированных по популярности и времени приготовления.
 
     Returns:
         Sequence[Recipe]: Список рецептов в формате:
@@ -64,12 +69,16 @@ async def get_all_recipes() -> Sequence[Recipe]:
     return res.scalars().all()
 
 
-@app.get("/recipes/{recipe_id}", response_model=Union[schemas.RecipeOutLong, Dict])
+@app.get("/recipes/{recipe_id}", response_model=Union[
+    schemas.RecipeOutLong, Dict
+])
 async def get_recipe_by_id(
-    recipe_id: Annotated[int, Path(title="Id of a recipe", ge=1)], response: Response
+        recipe_id: Annotated[int, Path(title="Id of a recipe", ge=1)],
+        response: Response
 ) -> Dict[str, Any]:
     """
-    Возвращает полную информацию о рецепте по его ID. Увеличивает счётчик просмотров.
+    Возвращает полную информацию о рецепте по его ID.
+    Увеличивает счётчик просмотров.
 
     Args:
         recipe_id (int, Path): ID рецепта (≥ 1).
@@ -104,10 +113,12 @@ async def get_recipe_by_id(
 
 
 @app.post(
-    "/recipes/", response_model=Union[schemas.RecipeOutLong, Dict], status_code=201
+    "/recipes/",
+    response_model=Union[schemas.RecipeOutLong, Dict],
+    status_code=201
 )
 async def add_new_recipe(
-    recipe: schemas.RecipeIn, response: Response
+        recipe: schemas.RecipeIn, response: Response
 ) -> Dict[str, Any]:
     """
     Добавляет новый рецепт в базу данных.
@@ -129,7 +140,9 @@ async def add_new_recipe(
     Raises:
         HTTP 409: Если рецепт с таким названием уже есть.
     """
-    res = await session.execute(select(Recipe).filter(Recipe.title == recipe.title))
+    res = await session.execute(
+        select(Recipe).filter(Recipe.title == recipe.title)
+    )
     res = res.scalars().all()
     if not res:
         recipe: Dict[str, Union[str, int, List[str]]] = recipe.dict()
@@ -162,7 +175,9 @@ async def add_new_recipe(
         await add_recipe_ingredients(ingredients_ids, new_recipe_id)
 
         await session.commit()
-        list_of_ingredients: List[str] = await get_ingredients_list(new_recipe_id)
+        list_of_ingredients: List[str] = await get_ingredients_list(
+            new_recipe_id
+        )
         output.update(list_of_ingredients=list_of_ingredients)
         return output
     else:
