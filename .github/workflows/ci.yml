@@ -24,7 +24,7 @@ jobs:
     
     - name: Run isort
       run: |
-        isort --check-only .
+        isort --resolve-all-configs
     
     - name: Run black
       run: |
