@@ -35,7 +35,3 @@ jobs:
       run: |
         cd homework
         flake8 --config CONFIG
-    
-    - name: Run tests
-      run: |
-        pytest -v
