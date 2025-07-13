@@ -7,12 +7,8 @@ from fill_db import populate_db
 from models import Base, Ingredient, Recipe
 from sqlalchemy import desc
 from sqlalchemy.future import select
-from utils import (
-    add_ingredients,
-    add_recipe_ingredients,
-    get_ingredients_list,
-    increase_view_count,
-)
+from utils import (add_ingredients, add_recipe_ingredients,
+                   get_ingredients_list, increase_view_count)
 
 app = FastAPI()
 
