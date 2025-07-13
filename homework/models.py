@@ -1,10 +1,9 @@
 from typing import Any, Dict
 
+from database import Base
 from sqlalchemy import Column, ForeignKey, Integer, Text
 from sqlalchemy.ext.associationproxy import association_proxy
 from sqlalchemy.orm import relationship
-
-from database import Base
 
 
 class Recipe(Base):

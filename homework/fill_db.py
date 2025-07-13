@@ -1,7 +1,6 @@
-from sqlalchemy.future import select
-
 from database import session
 from models import Ingredient, Recipe, RecipeIngredient
+from sqlalchemy.future import select
 
 
 async def populate_db():

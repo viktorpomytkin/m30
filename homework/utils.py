@@ -1,9 +1,8 @@
 from typing import Iterable, List, Optional, Sequence, Set
 
-from sqlalchemy.future import select
-
 from database import session
 from models import Ingredient, Recipe, RecipeIngredient
+from sqlalchemy.future import select
 
 
 async def increase_view_count(recipe_id: Optional[int] = None) -> None:
