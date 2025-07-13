@@ -1,0 +1,13 @@
+fastapi
+uvicorn
+sqlalchemy
+pydantic
+greenlet
+httpx
+aiosqlite
+pytest
+flake8
+isort
+black
+mypy
+pytest-cov
