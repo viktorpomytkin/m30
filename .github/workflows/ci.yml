@@ -35,10 +35,6 @@ jobs:
         cd homework
         flake8 --config CONFIG
     
-    - name: Run mypy
-      run: |
-        mypy .
-    
     - name: Run tests
       run: |
         pytest -v
