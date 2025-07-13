@@ -32,6 +32,7 @@ jobs:
     
     - name: Run flake8
       run: |
+        cd homework
         flake8 --config CONFIG
     
     - name: Run mypy
