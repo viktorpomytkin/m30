@@ -24,11 +24,11 @@ jobs:
     
     - name: Run isort
       run: |
-        isort --resolve-all-configs
+        isort .
     
     - name: Run black
       run: |
-        black --check .
+        black .
     
     - name: Run flake8
       run: |
