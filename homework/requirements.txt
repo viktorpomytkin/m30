@@ -9,5 +9,4 @@ pytest
 flake8
 isort
 black
-mypy
 pytest-cov

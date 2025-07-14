@@ -7,8 +7,12 @@ from fill_db import populate_db
 from models import Base, Ingredient, Recipe
 from sqlalchemy import desc
 from sqlalchemy.future import select
-from utils import (add_ingredients, add_recipe_ingredients,
-                   get_ingredients_list, increase_view_count)
+from utils import (
+    add_ingredients,
+    add_recipe_ingredients,
+    get_ingredients_list,
+    increase_view_count,
+)
 
 app = FastAPI()
 
@@ -43,7 +47,8 @@ async def shutdown():
 @app.get("/recipes/", response_model=List[schemas.RecipeOutShort])
 async def get_all_recipes() -> Sequence[Recipe]:
     """
-    Возвращает список всех рецептов, отсортированных по популярности и времени приготовления.
+    Возвращает список всех рецептов,
+    отсортированных по популярности и времени приготовления.
 
     Returns:
         Sequence[Recipe]: Список рецептов в формате:
@@ -68,7 +73,8 @@ async def get_recipe_by_id(
     recipe_id: Annotated[int, Path(title="Id of a recipe", ge=1)], response: Response
 ) -> Dict[str, Any]:
     """
-    Возвращает полную информацию о рецепте по его ID. Увеличивает счётчик просмотров.
+    Возвращает полную информацию о рецепте по его ID.
+    Увеличивает счётчик просмотров.
 
     Args:
         recipe_id (int, Path): ID рецепта (≥ 1).
